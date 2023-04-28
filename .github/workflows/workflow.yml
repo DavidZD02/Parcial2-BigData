@@ -47,11 +47,8 @@ jobs:
       - name: flake8
         run: |
           pip install flake8
-          flake8 newsFinal.py
-          flake8 noticias.py
-          flake8 test_newsFinal.py
-          flake8 test_noticias.py
+          flake8 noticias a csv.py
+          flake8 descargarNoticias.py
       - name: Update code
         run: |
-          aws s3 cp noticias.py s3://aws-glue-assets-263715384879-us-east-1/scripts/
-          aws s3 cp newsFinal.py s3://aws-glue-assets-263715384879-us-east-1/scripts/
+          cd
