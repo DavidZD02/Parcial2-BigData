@@ -1,8 +1,6 @@
 import boto3
 from bs4 import BeautifulSoup
-import unicodedata
 from datetime import date
-
 
 bucket = 'noticias-parcial99'
 fecha = date.today()
@@ -28,7 +26,7 @@ def elTiempo(file):
                     texto += f'"{titulo}","{categoria}","{link}"\n'
             except KeyError:
                 pass
-                
+
     url = "headlines/final/periodico=elTiempo/year=" + \
         str(fecha.year)+"/month="+str(fecha.strftime('%m'))+"/elTiempo"
     s3_resource.Object(bucket, url+'{}.csv'.format(
@@ -41,19 +39,19 @@ def elEspectador(file):
     texto = 'titulo,categoria,link\n'
 
     for articles in soup.find_all('h2', class_='Card-Title Title Title'):
-      for links in articles.find_all('a'):
-        try:
-          link='"'+links["href"]+'"'
-          categoria='"'+link.split('/')[1]+'"'
-          titulo='"'+(links.text)+'"'
-          texto+=f'{titulo},{categoria},{link}\n'
-        except:
-          ...
+        for links in articles.find_all('a'):
+            try:
+                link = '"'+links["href"]+'"'
+                categoria = '"'+link.split('/')[1]+'"'
+                titulo = '"'+(links.text)+'"'
+                texto += f'{titulo},{categoria},{link}\n'
+            except KeyError:
+                pass
 
-
-    url="headlines/final/periodico=elEspectador/year="+str(fecha.year)+"/month="+str(fecha.strftime('%m'))+"/elEspectador"
-    s3_resource.Object(bucket, url+'{}.csv'.format(fecha.strftime('%Y-%m-%d'))).put(Body=texto)
-
+    url = "headlines/final/periodico=elEspectador/year="+str(
+      fecha.year)+"/month="+str(fecha.strftime('%m'))+"/elEspectador"
+    s3_resource.Object(bucket, url+'{}.csv'.format(
+      fecha.strftime('%Y-%m-%d'))).put(Body=texto)
 
 
 elTiempo("headlines/raw/elTiempo-" + str(fecha.year) + "-" + str(
