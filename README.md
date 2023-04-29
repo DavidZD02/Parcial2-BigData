@@ -13,7 +13,3 @@
 28/04/23
 <br>
 </p>
-
-#Resultados
-![ResultadosWorkflows](https://user-images.githubusercontent.com/111716602/235322013-a2592663-5556-4f9d-aa51-ac1039be5d90.png)
-
