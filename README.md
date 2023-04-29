@@ -6,7 +6,7 @@
 <br>
 <i><b>Asignatura:</b></i> BigData.
 <br>
-<i><b>Estudiantes:</b></i> <br>David Santiago Zarate,<br>Juan Pablo Fernandez
+<i><b>Estudiantes:</b></i> <br>David Santiago Zarate (Grupo 02)<br>Juan Pablo Fernandez (Grupo 01)
 <br>
 <i><b>Tema:</b></i> Segundo Parcial
 <br>
